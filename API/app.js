@@ -6,21 +6,21 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var bukusRouter = require('./routes/bukus');
-const buku = require('./model/buku');
+var bukuRouter = require('./routes/bukus');
 
-//CORS Enabled
+//digunakan untuk cors enabled
 //Cross Origin Resource Sharing
-
 var app = express();
 
 app.use((req,res,next)=>{
-  res.setHeader("Access-Control-Allow-Origin","*");
-  res.setHeader("Access-Control-Allow-Headers",
+  res.setHeader("Access-Control-Allow-Origin","+");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
     "Origin, X-Requested-With,Content-Type, Accept");
   res.setHeader("Access-Control-Allow-Methods","GET, POST, PATCH, DELETE, OPTIONS");
   next();
 });
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/buku',bukusRouter);
+app.use('/buku', bukuRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
