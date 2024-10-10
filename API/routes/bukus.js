@@ -17,8 +17,10 @@ router.post('/', (req, res) => {
     });
 
     console.log(buku);
-    res.status(201).json({
-        message : "Data berhasil disimpan"
+    buku.save().then((createdBuku)=>{    
+        res.status(201).json({
+        message : "Data berhasil disimpan",
+        bookId : createdBuku._id});
     });
 });
 

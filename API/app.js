@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var bukuRouter = require('./routes/bukus');
 
+const mongoose = require("mongoose");
 //digunakan untuk cors enabled
 //Cross Origin Resource Sharing
 var app = express();
@@ -19,6 +20,15 @@ app.use((req,res,next)=>{
     "Origin, X-Requested-With,Content-Type, Accept");
   res.setHeader("Access-Control-Allow-Methods","GET, POST, PATCH, DELETE, OPTIONS");
   next();
+});
+
+mongoose.connect(
+  // "mongodb+srv://dav1dct:0812@dav1d.kr8uk.mongodb.net/?retryWrites=true&w=majority&appName=dav1d"
+  "mongodb://localhost:27017/dbbuku"
+).then(()=>{
+  console.log("Connected to Database");
+}).catch(()=>{
+  console.log("Connection Failed");
 });
 
 // view engine setup
