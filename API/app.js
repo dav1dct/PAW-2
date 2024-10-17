@@ -6,9 +6,10 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var bukuRouter = require('./routes/bukus');
+var bukusRouter = require('./routes/bukus');
 
 const mongoose = require("mongoose");
+
 //digunakan untuk cors enabled
 //Cross Origin Resource Sharing
 var app = express();
@@ -23,11 +24,11 @@ app.use((req,res,next)=>{
 });
 
 mongoose.connect(
-  // "mongodb+srv://dav1dct:0812@dav1d.kr8uk.mongodb.net/?retryWrites=true&w=majority&appName=dav1d"
   "mongodb://localhost:27017/dbbuku"
 ).then(()=>{
   console.log("Connected to Database");
-}).catch(()=>{
+}).catch((err)=>{
+  // console.error('App starting error:', err.stack);
   console.log("Connection Failed");
 });
 
@@ -43,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/buku', bukuRouter);
+app.use('/buku', bukusRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
