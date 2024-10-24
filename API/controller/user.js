@@ -9,6 +9,7 @@ const signUp = (req,res)=>{
     .then((result)=>{
         res.status(201).json({
             message: 'User berhasil dibuat',
+            result: result,
         });
     })
     .catch((err)=>{
@@ -18,3 +19,4 @@ const signUp = (req,res)=>{
     });
 
 };
+module.exports = {signUp};
