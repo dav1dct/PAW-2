@@ -13,10 +13,14 @@ const signUp = (req,res)=>{
         });
     })
     .catch((err)=>{
-        res.status(500).json({
+        res.status(501).json({
             message: 'Internal Server Error',
         });
-    });
+    })
+      const login = (req,res)=>{
+        let fetcheduser
+        User.findOne({})
+      };
 
 };
 module.exports = {signUp};
