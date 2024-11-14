@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="card mb-4">
-                    <form class="m-4">
+                    <form class="m-4" (submit)="simpanBuku()" #bukuForm="ngForm">
                         <div class="mb-3">
                             <label for="judul" class="form-label">Judul</label>
                             <input type="text" class="form-control" id="judul" ngModel name="judul">
@@ -30,7 +30,7 @@
                                 <label class="form-check-label" for="inlineCheckbox2">Lainnya</label>
                             </div>
                           </div>   
-                          <button class="btn btn-primary">Simpan Buku</button>                        
+                          <button type="submit" class="btn btn-primary">Simpan Buku</button>                        
                     </form>
                 </div>
             </div>
