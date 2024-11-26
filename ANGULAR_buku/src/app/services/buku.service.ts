@@ -6,7 +6,7 @@ import { Buku } from '../models/buku.model';
   providedIn: 'root'
 })
 export class BukuService {
-  private url : string = "http://localhost:3000/bukus";
+  private url : string = "http://localhost:3000/buku";
 
   constructor(private http : HttpClient) { }
 
@@ -18,8 +18,8 @@ export class BukuService {
       genre : genres
     }
 
-    // this.http.post<{message : string}>(this.url, buku).subscribe((response)=>{
-    //   console.log(response.message)
-    // });
+    this.http.post<{message : string}>(this.url, buku).subscribe((response)=>{
+      console.log(response.message)
+    });
   }
 }

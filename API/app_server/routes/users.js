@@ -7,8 +7,9 @@ const UserController = require("../controller/user");
 //   res.send('respond with a resource');
 // });
 
-router.post('/', UserController.signUp);
+router.post('/',UserController.signUp);
 
-router.post('/login', UserController.login);
+router.post("/login", UserController.login);
+
 
 module.exports = router;

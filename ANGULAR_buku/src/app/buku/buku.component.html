@@ -9,16 +9,21 @@
                     <form class="m-4" (submit)="simpanBuku(bukuForm)" #bukuForm="ngForm">
                         <div class="mb-3">
                             <label for="judul" class="form-label">Judul</label>
-                            <input type="text" class="form-control" id="judul" ngModel name="judul" required>
-                            <!-- #judul = "ngModel" -->
-                            <!-- [ngClass]="judul.invalid && bukuForm.submitted ? 'is-invalid' : ''"  -->
-                            <!-- <div *ngIf = "judul.invalid && bukuForm.submitted" class="invalid-feedback">
+                            <input type="text" 
+                            [ngClass]="judul.invalid && bukuForm.submitted ? 'is-invalid':''" 
+                            class="form-control" id="judul" ngModel name="judul" #judul = "ngModel" required>
+                            <div *ngIf = "judul.invalid && bukuForm.submitted" class="invalid-feedback">
                                 Judul Harus Diisi
-                            </div> -->
+                            </div>
                           </div>
                           <div class="mb-3">
                             <label for="penulis" class="form-label">Penulis</label>
-                            <input type="text" class="form-control" id="penulis" ngModel name="penulis" required>
+                            <input type="text" 
+                            [ngClass]="penulis.invalid && bukuForm.submitted ? 'is-invalid':''" 
+                            class="form-control" id="penulis" ngModel name="penulis" #penulis = "ngModel" required>
+                            <div *ngIf = "penulis.invalid && bukuForm.submitted" class="invalid-feedback">
+                                Penulis Harus Diisi
+                            </div>
                           </div>
                           <div class="mb-3">
                             <label for="penulis" class="form-label me-4">Genre</label>
