@@ -6,27 +6,32 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="card mb-4">
-                    <form class="m-4" (submit)="simpanBuku()" #bukuForm="ngForm">
+                    <form class="m-4" (submit)="simpanBuku(bukuForm)" #bukuForm="ngForm">
                         <div class="mb-3">
                             <label for="judul" class="form-label">Judul</label>
-                            <input type="text" class="form-control" id="judul" ngModel name="judul">
+                            <input type="text" class="form-control" id="judul" ngModel name="judul" required>
+                            <!-- #judul = "ngModel" -->
+                            <!-- [ngClass]="judul.invalid && bukuForm.submitted ? 'is-invalid' : ''"  -->
+                            <!-- <div *ngIf = "judul.invalid && bukuForm.submitted" class="invalid-feedback">
+                                Judul Harus Diisi
+                            </div> -->
                           </div>
                           <div class="mb-3">
                             <label for="penulis" class="form-label">Penulis</label>
-                            <input type="text" class="form-control" id="penulis" ngModel name="penulis">
+                            <input type="text" class="form-control" id="penulis" ngModel name="penulis" required>
                           </div>
                           <div class="mb-3">
                             <label for="penulis" class="form-label me-4">Genre</label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="biografi">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="biografi" ngModel name="genre1">
                                 <label class="form-check-label" for="inlineCheckbox1">Biografi</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="pendidikan">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="pendidikan" ngModel name="genre2">
                                 <label class="form-check-label" for="inlineCheckbox2">Pendidikan</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="lainnya">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="lainnya" ngModel name="genre3">
                                 <label class="form-check-label" for="inlineCheckbox2">Lainnya</label>
                             </div>
                           </div>   
