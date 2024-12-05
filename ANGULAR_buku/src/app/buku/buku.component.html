@@ -3,6 +3,7 @@
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Data Buku</li>
         </ol>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="card mb-4">
@@ -42,6 +43,9 @@
                           </div>   
                           <button type="submit" class="btn btn-primary">Simpan Buku</button>                        
                     </form>
+                    <div *ngIf="messageExecute != ''" class="bg-success m-4 p-2 text-dark bg-opacity-25">
+                        <h6>{{ messageExecute }}</h6>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
@@ -65,7 +69,7 @@
                                     <td>{{ buku.judul }}</td>
                                     <td>{{ buku.penulis }}</td>
                                     <td><button class="btn btn-outline-primary btn-sm">EDIT</button></td>
-                                    <td><button class="btn btn-outline-danger btn-sm">DELETE</button></td>
+                                    <td><button (click)="hapusBuku(buku)" class="btn btn-outline-danger btn-sm">DELETE</button></td>
                                 </tr>
                             </tbody>
                         </table>
